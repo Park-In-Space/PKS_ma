@@ -1,0 +1,10 @@
+query getParkings{
+  par_getParkings{
+    id
+    name
+    address
+    pricePerMinute
+    address
+    idLocation
+  }
+}

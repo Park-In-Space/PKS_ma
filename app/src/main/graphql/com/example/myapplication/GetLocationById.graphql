@@ -1,0 +1,6 @@
+query getLocationById($id: Int!){
+    loc_location(id: $id){
+        latitude
+        longitude
+    }
+}
