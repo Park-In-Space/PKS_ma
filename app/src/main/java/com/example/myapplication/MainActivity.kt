@@ -32,35 +32,5 @@ class MainActivity : AppCompatActivity() {
         buttonSignUp.setOnClickListener {
             // Do something in response to button click
         }
-
-        lifecycleScope.launchWhenResumed {
-            val openHoursList = listOf( OpenHoursInput(opening = Input.optional("06:00"),
-                                            closing = Input.optional("23:59")),
-                                        OpenHoursInput(opening = Input.optional("06:00"),
-                                            closing = Input.optional("23:59")),
-                                        OpenHoursInput(opening = Input.optional("06:00"),
-                                            closing = Input.optional("23:59")),
-                                        OpenHoursInput(opening = Input.optional("06:00"),
-                                            closing = Input.optional("23:59")),
-                                        OpenHoursInput(opening = Input.optional("06:00"),
-                                            closing = Input.optional("23:59")),
-                                        OpenHoursInput(opening = Input.optional("06:00"),
-                                            closing = Input.optional("23:59")),
-                                        OpenHoursInput(opening = Input.optional("11:00"),
-                                            closing = Input.optional("22:00"))
-                                        )
-            val newParking = ParkingInputLoc( name = "City Parking Calle 85" ,
-                                                address = Input.optional("Calle 85 # 12-46 Bpgpta"),
-                                                pricePerMinute = 105,
-                                                totalSpaces = 200,
-                                                usedSpaces = 0,
-                                                latitude = 4.669674656951608,
-                                                longitude = -74.05285064827103,
-                                                openHours = openHoursList)
-            val response = apolloClient.mutate(PostParkingMutation( newParking )).await()
-            Log.d("ParkingList", "Success ${response?.data}")
-            //Log.d("ParkingList", "Success ${response?.data?.par_getParkings?.get(0)?.name}")
-        }
-
     }
 }
