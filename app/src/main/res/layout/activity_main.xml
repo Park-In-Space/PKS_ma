@@ -21,7 +21,21 @@
 
 
     <Button
-        android:id="@+id/buttonSignUp"
+        android:id="@+id/buttonSignUpClient"
+        android:layout_width="174dp"
+        android:layout_height="51dp"
+        android:text="Registrarse"
+        android:textColor="@color/black"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.591" />
+
+    <Button
+        android:id="@+id/buttonSignUpPark"
         android:layout_width="174dp"
         android:layout_height="51dp"
         android:text="Registrarse"
@@ -47,6 +61,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.752" />
+
+
 
     <TextView
         android:id="@+id/textView"

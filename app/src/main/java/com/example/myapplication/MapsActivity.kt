@@ -106,6 +106,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             Log.d("ParkingList", "Success ${response?.data}")
             //Log.d("ParkingList", "Success ${response?.data?.par_getParkings?.get(0)?.name}")
         }
+
+
         //val miPosicion =  getLocationAccess()
 
         //mMap.addMarker(MarkerOptions().position(miPosicion).title("Mi posicion"))
