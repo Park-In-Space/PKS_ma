@@ -30,20 +30,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         setContentView(R.layout.activity_maps)
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
-                .findFragmentById(R.id.map) as SupportMapFragment
+            .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        lifecycleScope.launchWhenResumed {
-            val response = apolloClient.query(GetParkingsQuery()).await()
-            for( parking in response?.data?.par_getParkings!! ){
-                if( parking == null || parking.idLocation == null ) continue
-                val locationResponse = apolloClient.query(GetLocationByIdQuery( parking.idLocation )).await()
-                if( locationResponse?.data?.loc_location == null ) continue
-                Log.d("ParkingList", "Location ${locationResponse?.data?.loc_location?.latitude} ${locationResponse?.data?.loc_location?.longitude}")
-            }
-            Log.d("ParkingList", "Success ${response?.data}")
-            Log.d("ParkingList", "Success ${response?.data?.par_getParkings?.get(0)?.name}")
-        }
+
     }
 
     /**
@@ -101,12 +91,28 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap = googleMap
 
         // Add a marker in Sydney and move the camera
-        val Museo = LatLng(45.5075 ,-73.5661)
+
         getLocationAccess()
+        val i=0
+        lifecycleScope.launchWhenResumed {
+            val response = apolloClient.query(GetParkingsQuery()).await()
+            //mMap.addMarker(MarkerOptions().position(Museo).title(response?.data?.par_getParkings?.get(0)?.name))
+            for( parking in response?.data?.par_getParkings!! ){
+                if( parking == null || parking.idLocation == null ) continue
+                val locationResponse = apolloClient.query(GetLocationByIdQuery( parking.idLocation )).await()
+                if( locationResponse?.data?.loc_location == null ) continue
+                val Parking = LatLng(locationResponse?.data?.loc_location?.latitude!! ,locationResponse?.data?.loc_location?.longitude!!)
+                mMap.addMarker(MarkerOptions().position(Parking).title(parking.name))
+                Log.d("ParkingList", "Location ${locationResponse?.data?.loc_location?.latitude} ${locationResponse?.data?.loc_location?.longitude}")
+            }
+            Log.d("ParkingList", "Success ${response?.data}")
+            //Log.d("ParkingList", "Success ${response?.data?.par_getParkings?.get(0)?.name}")
+        }
         //val miPosicion =  getLocationAccess()
-        mMap.addMarker(MarkerOptions().position(Museo).title("Parqueadero 1"))
+
         //mMap.addMarker(MarkerOptions().position(miPosicion).title("Mi posicion"))
-        //mMap.moveCamera(CameraUpdateFactory.newLatLng(Bogota))
-        //mMap.moveCamera( CameraUpdateFactory.newLatLngZoom(Bogota,20f))
+        val Bogota = LatLng(4.60971, -74.08175)
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(Bogota))
+        mMap.moveCamera( CameraUpdateFactory.newLatLngZoom(Bogota,10f))
     }
 }
