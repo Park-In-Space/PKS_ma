@@ -30,9 +30,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         lifecycleScope.launchWhenResumed {
-            val newUser = UserClienAuthInput( name = "Catalina" , email = "catamon@unal.edu.co" ,
-                age = 22 , password = "1234567" , phoneNumber = 3216548 )
-            val response = apolloClient.mutate(PostClientUserMutation(newUser)).await()
+            val response = apolloClient.query(GetAllClientUsersQuery()).await()
             Log.d("ParkingList", "Success ${response?.data}")
             //Log.d("ParkingList", "Success ${response?.data?.par_getParkings?.get(0)?.name}")
         }

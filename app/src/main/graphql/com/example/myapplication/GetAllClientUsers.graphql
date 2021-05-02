@@ -1,0 +1,9 @@
+query getAllClientUsers{
+    clu_getAllUsers{
+        userId
+        name
+        email
+        age
+        phoneNumber
+    }
+}
