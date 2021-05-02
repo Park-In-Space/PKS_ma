@@ -6,8 +6,10 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import androidx.lifecycle.lifecycleScope
+import com.apollographql.apollo.api.Input
 import com.apollographql.apollo.coroutines.await
 import com.example.myapplication.dataAccess.apolloClient
+import com.example.myapplication.type.ParkinglotuserAuthInput
 import com.google.android.gms.maps.model.LatLng
 
 class MainActivity : AppCompatActivity() {
@@ -28,6 +30,13 @@ class MainActivity : AppCompatActivity() {
         buttonSignUp.setOnClickListener {
             val intent = Intent(this, RegistrationClient::class.java)
             startActivity(intent)
+        }
+
+        lifecycleScope.launchWhenResumed {
+            val user = ParkinglotuserAuthInput(email = Input.optional("aaa"),password = "a")
+            val response = apolloClient.mutate(LoginMutation(email = "hamilton@mercedes.com",password = "1234567")).await()
+            Log.d("ParkingList", "Success ${response?.data}")
+            //Log.d("ParkingList", "Success ${response?.data?.par_getParkings?.get(0)?.name}")
         }
     }
 }
