@@ -1,0 +1,10 @@
+query getAllParkingLotUsers{
+    plu_getAllParkinglotuser{
+        id
+        userId
+        username
+        email
+        name
+        phone
+    }
+}

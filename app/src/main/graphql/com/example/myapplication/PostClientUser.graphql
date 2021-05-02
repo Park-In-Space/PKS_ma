@@ -1,0 +1,9 @@
+mutation postClientUser($user: UserClienAuthInput!){
+    clu_postUser(user: $user){
+        userId
+        name
+        email
+        age
+        phoneNumber
+    }
+}

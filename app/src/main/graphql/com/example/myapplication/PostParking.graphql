@@ -1,0 +1,15 @@
+mutation postParking($parking: ParkingInputLoc!){
+    par_createNewParkingLoc(parking: $parking){
+        id
+        name
+        pricePerMinute
+        totalSpaces
+        usedSpaces
+        openHours{
+            opening
+            closing
+        }
+        idLocation
+        address
+    }
+}

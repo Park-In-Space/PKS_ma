@@ -1,0 +1,9 @@
+mutation postParkingLotUser($parkingLotUser: ParkinglotuserAuthInput!){
+    plu_postParkinglotuser(parkinglotuser: $parkingLotUser){
+        id
+        userId
+        username
+        email
+        phone
+    }
+}
