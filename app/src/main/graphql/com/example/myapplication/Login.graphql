@@ -1,0 +1,7 @@
+mutation login($email: String!,$password: String!){
+    ath_login(email:$email,password:$password){
+        user_id
+        email
+        token
+    }
+}
