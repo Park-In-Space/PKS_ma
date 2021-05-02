@@ -9,6 +9,8 @@ import androidx.lifecycle.lifecycleScope
 import com.apollographql.apollo.api.Input
 import com.apollographql.apollo.coroutines.await
 import com.example.myapplication.dataAccess.apolloClient
+import com.example.myapplication.type.OpenHoursInput
+import com.example.myapplication.type.ParkingInputLoc
 import com.example.myapplication.type.ParkinglotuserAuthInput
 import com.example.myapplication.type.UserClienAuthInput
 
@@ -32,7 +34,30 @@ class MainActivity : AppCompatActivity() {
         }
 
         lifecycleScope.launchWhenResumed {
-            val response = apolloClient.query(GetParkingByIdQuery(29)).await()
+            val openHoursList = listOf( OpenHoursInput(opening = Input.optional("06:00"),
+                                            closing = Input.optional("23:59")),
+                                        OpenHoursInput(opening = Input.optional("06:00"),
+                                            closing = Input.optional("23:59")),
+                                        OpenHoursInput(opening = Input.optional("06:00"),
+                                            closing = Input.optional("23:59")),
+                                        OpenHoursInput(opening = Input.optional("06:00"),
+                                            closing = Input.optional("23:59")),
+                                        OpenHoursInput(opening = Input.optional("06:00"),
+                                            closing = Input.optional("23:59")),
+                                        OpenHoursInput(opening = Input.optional("06:00"),
+                                            closing = Input.optional("23:59")),
+                                        OpenHoursInput(opening = Input.optional("11:00"),
+                                            closing = Input.optional("22:00"))
+                                        )
+            val newParking = ParkingInputLoc( name = "City Parking Calle 85" ,
+                                                address = Input.optional("Calle 85 # 12-46 Bpgpta"),
+                                                pricePerMinute = 105,
+                                                totalSpaces = 200,
+                                                usedSpaces = 0,
+                                                latitude = 4.669674656951608,
+                                                longitude = -74.05285064827103,
+                                                openHours = openHoursList)
+            val response = apolloClient.mutate(PostParkingMutation( newParking )).await()
             Log.d("ParkingList", "Success ${response?.data}")
             //Log.d("ParkingList", "Success ${response?.data?.par_getParkings?.get(0)?.name}")
         }
