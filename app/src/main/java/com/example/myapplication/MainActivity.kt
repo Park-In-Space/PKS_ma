@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         lifecycleScope.launchWhenResumed {
-            val response = apolloClient.query(GetAllClientUsersQuery()).await()
+            val response = apolloClient.query(GetAllParkingLotUsersQuery()).await()
             Log.d("ParkingList", "Success ${response?.data}")
             //Log.d("ParkingList", "Success ${response?.data?.par_getParkings?.get(0)?.name}")
         }
