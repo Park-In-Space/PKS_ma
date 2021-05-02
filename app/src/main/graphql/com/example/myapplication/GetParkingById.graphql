@@ -1,0 +1,16 @@
+query getParkingById($id: Int!){
+    par_getParkingById(id:$id){
+        id
+        name
+        pricePerMinute
+        totalSpaces
+        usedSpaces
+        image
+        idLocation
+        address
+        openHours{
+            opening
+            closing
+        }
+    }
+}

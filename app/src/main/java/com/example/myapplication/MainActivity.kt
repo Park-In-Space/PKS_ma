@@ -32,12 +32,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         lifecycleScope.launchWhenResumed {
-            val newUser = ParkinglotuserAuthInput( email = Input.optional("ripezro@unal.edu.co"),
-                                                    password = "123456",
-                                                    name = Input.optional("Andres"),
-                                                    phone = Input.optional("3216549879"),
-                                                    username = Input.optional("riperezro"))
-            val response = apolloClient.mutate(PostParkingLotUserMutation(newUser)).await()
+            val response = apolloClient.query(GetParkingByIdQuery(29)).await()
             Log.d("ParkingList", "Success ${response?.data}")
             //Log.d("ParkingList", "Success ${response?.data?.par_getParkings?.get(0)?.name}")
         }
