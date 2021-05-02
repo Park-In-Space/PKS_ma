@@ -42,7 +42,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 Log.d("ParkingList", "Location ${locationResponse?.data?.loc_location?.latitude} ${locationResponse?.data?.loc_location?.longitude}")
             }
             Log.d("ParkingList", "Success ${response?.data}")
-            Log.d("ParkingList", "Success ${response?.data?.par_getParkings?.get(0)?.name}")
+            //Log.d("ParkingList", "Success ${response?.data?.par_getParkings?.get(0)?.name}")
         }
     }
 

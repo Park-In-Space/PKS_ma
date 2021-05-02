@@ -1,4 +1,4 @@
-mutation postClientUser($user: user!){
+mutation postClientUser($user: UserInput){
     clu_postUser(user: $user){
         userId
         name
