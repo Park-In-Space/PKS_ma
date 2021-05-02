@@ -6,8 +6,10 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import androidx.lifecycle.lifecycleScope
+import com.apollographql.apollo.api.Input
 import com.apollographql.apollo.coroutines.await
 import com.example.myapplication.dataAccess.apolloClient
+import com.example.myapplication.type.ParkinglotuserAuthInput
 import com.example.myapplication.type.UserClienAuthInput
 
 class MainActivity : AppCompatActivity() {
@@ -30,7 +32,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         lifecycleScope.launchWhenResumed {
-            val response = apolloClient.query(GetAllParkingLotUsersQuery()).await()
+            val newUser = ParkinglotuserAuthInput( email = Input.optional("ripezro@unal.edu.co"),
+                                                    password = "123456",
+                                                    name = Input.optional("Andres"),
+                                                    phone = Input.optional("3216549879"),
+                                                    username = Input.optional("riperezro"))
+            val response = apolloClient.mutate(PostParkingLotUserMutation(newUser)).await()
             Log.d("ParkingList", "Success ${response?.data}")
             //Log.d("ParkingList", "Success ${response?.data?.par_getParkings?.get(0)?.name}")
         }
