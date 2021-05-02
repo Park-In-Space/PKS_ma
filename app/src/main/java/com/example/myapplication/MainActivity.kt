@@ -9,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import com.apollographql.apollo.api.Input
 import com.apollographql.apollo.coroutines.await
 import com.example.myapplication.dataAccess.apolloClient
+import com.example.myapplication.service.UserLogin
 import com.example.myapplication.type.ParkinglotuserAuthInput
 import com.google.android.gms.maps.model.LatLng
 
@@ -34,9 +35,22 @@ class MainActivity : AppCompatActivity() {
 
         lifecycleScope.launchWhenResumed {
             val user = ParkinglotuserAuthInput(email = Input.optional("aaa"),password = "a")
-            val response = apolloClient.mutate(LoginMutation(email = "hamilton@mercedes.com",password = "1234567")).await()
-            Log.d("ParkingList", "Success ${response?.data}")
-            //Log.d("ParkingList", "Success ${response?.data?.par_getParkings?.get(0)?.name}")
+            val response = apolloClient.mutate(LoginMutation(email = "verstappen@redbull.com",password = "123456")).await()
+            Log.d("ParkingList", "LOGIN ${response?.data}")
+            if( response.data?.ath_login != null ){
+                val email = response.data!!.ath_login?.email
+                val type = UserLogin.userType( email )
+                Log.d("ParkingList", "TYPE $type")
+                if( type != null ){
+                    if( type == "client" ){
+                        val clientUser = UserLogin.getClientByEmail( email )
+                        Log.d("ParkingList", "CLIENT $clientUser")
+                    }else if( type == "parking" ){
+                        val clientUser = UserLogin.getParkingLotUserByEmail( email )
+                        Log.d("ParkingList", "PLU $clientUser")
+                    }
+                }
+            }
         }
     }
 }
