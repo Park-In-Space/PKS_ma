@@ -35,8 +35,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         lifecycleScope.launchWhenResumed {
             val response = apolloClient.query(GetParkingsQuery()).await()
-
-            Log.d("LaunchList", "Success ${response?.data}")
+            for( parking in response?.data?.par_getParkings!! ){
+                if( parking == null || parking.idLocation == null ) continue
+                val locationResponse = apolloClient.query(GetLocationByIdQuery( parking.idLocation )).await()
+                if( locationResponse?.data?.loc_location == null ) continue
+                Log.d("ParkingList", "Location ${locationResponse?.data?.loc_location?.latitude} ${locationResponse?.data?.loc_location?.longitude}")
+            }
+            Log.d("ParkingList", "Success ${response?.data}")
+            Log.d("ParkingList", "Success ${response?.data?.par_getParkings?.get(0)?.name}")
         }
     }
 
