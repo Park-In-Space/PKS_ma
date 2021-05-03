@@ -1,0 +1,10 @@
+query getParkingLotUserById($id: Int!){
+    plu_getByIdParkinglotuser(id:$id){
+        id
+        userId
+        username
+        email
+        name
+        phone
+    }
+}
