@@ -9,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import com.apollographql.apollo.api.Input
 import com.apollographql.apollo.coroutines.await
 import com.example.myapplication.dataAccess.apolloClient
+import com.example.myapplication.service.MapInformation
 import com.example.myapplication.service.UserLogin
 import com.example.myapplication.type.ParkinglotuserAuthInput
 import com.google.android.gms.maps.model.LatLng
@@ -32,7 +33,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, RegistrationClient::class.java)
             startActivity(intent)
         }
-
 
     }
 }
