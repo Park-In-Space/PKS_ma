@@ -1,11 +1,14 @@
 package com.example.myapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.apollographql.apollo.coroutines.await
+import com.apollographql.apollo.exception.ApolloHttpException
 import com.example.myapplication.dataAccess.apolloClient
 import com.example.myapplication.type.UserClienAuthInput
 import com.google.android.gms.maps.model.LatLng
@@ -22,22 +25,36 @@ class RegistrationClient : AppCompatActivity() {
         val email: TextInputLayout = findViewById(R.id.userEmail)
         val password: TextInputLayout = findViewById(R.id.userPassword)
         val age: TextInputLayout = findViewById(R.id.userAge)
+        val phone: TextInputLayout = findViewById(R.id.userPhone)
 
 
-        //val a = name.getEditText().getText().toString()
-        //val cliente= UserClienAuthInput(name = name.get,email = "elbocho@gmail" , age = 9,phoneNumber = 123,password = "123456")
+        val buttonRegister: Button = findViewById(R.id.clientRegister)
+        buttonRegister.setOnClickListener {
+//            Log.d("ParkingList", "Success ${name.getEditText()?.getText().toString()}")
+//            Log.d("ParkingList", "Success ${email.getEditText()?.getText().toString()}")
+//            Log.d("ParkingList", "Success ${password.getEditText()?.getText().toString()}")
+//            Log.d("ParkingList", "Success ${name.getEditText()?.getText().toString()}")
+            val client= UserClienAuthInput(name = name.getEditText()?.getText().toString(),email = email.getEditText()?.getText().toString() , age =  age.getEditText()?.getText().toString().toInt(),phoneNumber = phone.getEditText()?.getText().toString().toInt(),password = password.getEditText()?.getText().toString())
 
-//
-//        lifecycleScope.launchWhenResumed {
-//            val response = apolloClient.mutate(PostClientUserMutation(cliente)).await()
-//            //mMap.addMarker(MarkerOptions().position(Museo).title(response?.data?.par_getParkings?.get(0)?.name))
-//            Log.d("ParkingList", "Success ${response?.data}")
-//            //Log.d("ParkingList", "Success ${response?.data?.par_getParkings?.get(0)?.name}")
-//        }
+            lifecycleScope.launchWhenResumed {
+                               //val client= UserClienAuthInput(name = 'pzambi',email = 'perro@gmail.com' , age =  9,phoneNumber = phone.getEditText()?.getText().toString().toInt(),password = password.getEditText()?.getText().toString())
+               try {
+                   val response = apolloClient.mutate(PostClientUserMutation(client)).await()
+               }
+               catch (e: ApolloHttpException){
+
+                   Toast.makeText(applicationContext, "Email already in use", Toast.LENGTH_LONG).show()
+               }
+            }
+        }
+
+
 
 
 
     }
+
+
 
 
 

@@ -33,24 +33,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        lifecycleScope.launchWhenResumed {
-            val user = ParkinglotuserAuthInput(email = Input.optional("aaa"),password = "a")
-            val response = apolloClient.mutate(LoginMutation(email = "verstappen@redbull.com",password = "123456")).await()
-            Log.d("ParkingList", "LOGIN ${response?.data}")
-            if( response.data?.ath_login != null ){
-                val email = response.data!!.ath_login?.email
-                val type = UserLogin.userType( email )
-                Log.d("ParkingList", "TYPE $type")
-                if( type != null ){
-                    if( type == "client" ){
-                        val clientUser = UserLogin.getClientByEmail( email )
-                        Log.d("ParkingList", "CLIENT $clientUser")
-                    }else if( type == "parking" ){
-                        val clientUser = UserLogin.getParkingLotUserByEmail( email )
-                        Log.d("ParkingList", "PLU $clientUser")
-                    }
-                }
-            }
-        }
+
     }
 }
