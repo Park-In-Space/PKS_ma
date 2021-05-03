@@ -1,4 +1,4 @@
-query getParkinglot{
+query getParkinglotOwners{
     plu_getAllParkinglot{
         id
         parkinglotuser{
