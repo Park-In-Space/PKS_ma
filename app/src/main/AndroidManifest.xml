@@ -16,10 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
-        <activity android:name=".RegistrarParqueadero">
-
-
-        </activity>
+        <activity android:name=".ParkingView"></activity>
+        <activity android:name=".RegistrarParqueadero"></activity>
         <activity android:name=".SplashActivity" />
         <activity android:name=".Login" />
         <activity android:name=".MainActivity">
@@ -28,7 +26,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".RegistrationClient" />
         <!--
