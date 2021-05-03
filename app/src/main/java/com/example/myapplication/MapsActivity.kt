@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.apollographql.apollo.coroutines.await
-import com.example.myapplication.dataAccess.apolloClient
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -19,6 +18,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
 import androidx.lifecycle.lifecycleScope
+import com.example.myapplication.dataAccess.*
 
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {

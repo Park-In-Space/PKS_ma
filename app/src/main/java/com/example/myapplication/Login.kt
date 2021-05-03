@@ -7,9 +7,9 @@ import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import com.apollographql.apollo.coroutines.await
-import com.example.myapplication.dataAccess.apolloClient
 import androidx.lifecycle.lifecycleScope
 import com.apollographql.apollo.api.Input
+import com.example.myapplication.dataAccess.*
 import com.example.myapplication.service.UserLogin
 import com.example.myapplication.type.ParkinglotuserAuthInput
 import com.google.android.gms.maps.model.LatLng
@@ -40,12 +40,26 @@ class Login : AppCompatActivity() {
                     if( type != null ){
                         if( type == "client" ){
                             val clientUser = UserLogin.getClientByEmail( email )
+                            if( clientUser != null ){
+                                loggedIn = true
+                                isClient = true
+                                isParkingLotUser = false
+                                clientID = clientUser.userId
+                                parkingLotUserID = null
+                            }
                             Log.d("ParkingList", "CLIENT $clientUser")
                             val intent = Intent(applicationContext, MapsActivity::class.java)
                             startActivity(intent)
                         }else if( type == "parking" ){
-                            val clientUser = UserLogin.getParkingLotUserByEmail( email )
-                            Log.d("ParkingList", "PLU $clientUser")
+                            val parkingLotUser = UserLogin.getParkingLotUserByEmail( email )
+                            if( parkingLotUser != null ){
+                                loggedIn = true
+                                isClient = false
+                                isParkingLotUser = true
+                                clientID = null
+                                parkingLotUserID = parkingLotUser.id
+                            }
+                            Log.d("ParkingList", "PLU $parkingLotUser")
                             val intent = Intent(applicationContext, MapsActivity::class.java)
                             startActivity(intent)
                         }
