@@ -40,19 +40,17 @@
         </RelativeLayout>
 
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:orientation="vertical"
-            android:padding="20dp">
-
-
+            android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/userName"
+                android:id="@+id/parkingName"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -67,106 +65,72 @@
                 </com.google.android.material.textfield.TextInputEditText>
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/parkingAddress"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="Direccion">
 
-        </LinearLayout>
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="130dp">
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="0dp"
-                android:layout_height="125dp"
-                android:layout_weight="1">
-
-                <RelativeLayout
+                <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="5dp">
+                    android:layout_height="wrap_content"
+                    android:inputType="text">
+
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageView
+                android:id="@+id/pago"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/pago">
+
+            </ImageView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/parkingPrice"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pago"
+                android:hint="Precio por minuto">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="number">
+
+                </com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-                    <ImageView
-                        android:id="@+id/pago"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/pago">
+            <ImageView
+                android:id="@+id/espacio"
+                android:layout_width="34dp"
+                android:layout_height="33dp"
+                android:src="@drawable/carros">
 
-                    </ImageView>
+            </ImageView>
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/parkingPrice"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/pago"
-                        android:hint="Precio por minuto">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/parkinTotalSpace"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/espacio"
+                android:hint="Espacio Total">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:inputType="number">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="number">
 
-                        </com.google.android.material.textfield.TextInputEditText>
+                </com.google.android.material.textfield.TextInputEditText>
 
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                </RelativeLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="0dp"
-                android:layout_height="125dp"
-                android:layout_weight="1">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="5dp">
-
-
-                    <ImageView
-                        android:id="@+id/espacio"
-                        android:layout_width="34dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/carros">
-
-                    </ImageView>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/parkinTotalSpace"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/espacio"
-                        android:hint="Espacio Total">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:inputType="number">
-
-                        </com.google.android.material.textfield.TextInputEditText>
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                </RelativeLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-
-        </LinearLayout>
-
-
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="140dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            </com.google.android.material.textfield.TextInputLayout>
 
 
             <TextView
@@ -200,7 +164,7 @@
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Hora entrada lunes">
+                            android:hint="Hora entrada ">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:layout_width="200dp"
@@ -231,12 +195,12 @@
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Hora salida lunes">
+                            android:hint="Hora salida ">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:layout_width="200dp"
                                 android:layout_height="wrap_content"
-                                android:inputType="number">
+                                android:inputType="time">
 
                             </com.google.android.material.textfield.TextInputEditText>
 
@@ -281,7 +245,7 @@
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Hora entrada lunes">
+                            android:hint="Hora entrada ">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:layout_width="200dp"
@@ -312,12 +276,12 @@
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Hora salida lunes">
+                            android:hint="Hora salida ">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:layout_width="200dp"
                                 android:layout_height="wrap_content"
-                                android:inputType="number">
+                                android:inputType="time">
 
                             </com.google.android.material.textfield.TextInputEditText>
 
@@ -362,12 +326,12 @@
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Hora entrada lunes">
+                            android:hint="Hora entrada ">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:layout_width="200dp"
                                 android:layout_height="wrap_content"
-                                android:inputType="number">
+                                android:inputType="time">
 
                             </com.google.android.material.textfield.TextInputEditText>
 
@@ -393,7 +357,7 @@
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Hora salida lunes">
+                            android:hint="Hora salida ">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:layout_width="200dp"
@@ -443,7 +407,7 @@
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Hora entrada lunes">
+                            android:hint="Hora entrada ">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:layout_width="200dp"
@@ -474,12 +438,12 @@
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Hora salida lunes">
+                            android:hint="Hora salida ">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:layout_width="200dp"
                                 android:layout_height="wrap_content"
-                                android:inputType="number">
+                                android:inputType="time">
 
                             </com.google.android.material.textfield.TextInputEditText>
 
@@ -524,7 +488,7 @@
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Hora entrada lunes">
+                            android:hint="Hora entrada ">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:layout_width="200dp"
@@ -555,12 +519,12 @@
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Hora salida lunes">
+                            android:hint="Hora salida ">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:layout_width="200dp"
                                 android:layout_height="wrap_content"
-                                android:inputType="number">
+                                android:inputType="time">
 
                             </com.google.android.material.textfield.TextInputEditText>
 
@@ -605,7 +569,7 @@
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Hora entrada lunes">
+                            android:hint="Hora entrada ">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:layout_width="200dp"
@@ -636,12 +600,12 @@
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Hora salida lunes">
+                            android:hint="Hora salida ">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:layout_width="200dp"
                                 android:layout_height="wrap_content"
-                                android:inputType="number">
+                                android:inputType="time">
 
                             </com.google.android.material.textfield.TextInputEditText>
 
@@ -686,7 +650,7 @@
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Hora entrada lunes">
+                            android:hint="Hora entrada ">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:layout_width="200dp"
@@ -717,12 +681,12 @@
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Hora salida lunes">
+                            android:hint="Hora salida ">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:layout_width="200dp"
                                 android:layout_height="wrap_content"
-                                android:inputType="number">
+                                android:inputType="time">
 
                             </com.google.android.material.textfield.TextInputEditText>
 
@@ -736,12 +700,24 @@
 
             </LinearLayout>
 
+            <Button
+                android:id="@+id/parkingRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="LISTO?"
+                android:textColor="@color/white"
+                app:backgroundTint="#2e0143">
+
+
+            </Button>
 
 
         </LinearLayout>
 
 
-</ScrollView>
+    </ScrollView>
+
+
 
 
 </LinearLayout>

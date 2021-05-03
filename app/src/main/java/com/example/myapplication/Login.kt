@@ -60,7 +60,7 @@ class Login : AppCompatActivity() {
                                 parkingLotUserID = parkingLotUser.id
                             }
                             Log.d("ParkingList", "PLU $parkingLotUser")
-                            val intent = Intent(applicationContext, MapsActivity::class.java)
+                            val intent = Intent(applicationContext, MapsParkUserActivity::class.java)
                             startActivity(intent)
                         }
                     }
