@@ -34,5 +34,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val buttonSignUpPark: Button = findViewById(R.id.buttonSignUpPark)
+        buttonSignUpPark.setOnClickListener {
+            val intent = Intent(this, RegistrationParkUser::class.java)
+            startActivity(intent)
+        }
+
     }
 }

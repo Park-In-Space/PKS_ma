@@ -16,21 +16,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
-        <activity android:name=".RegistrarParqueadero">
-
-
-        </activity>
-        <activity android:name=".SplashActivity" />
-        <activity android:name=".Login" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
-        <activity android:name=".RegistrationClient" />
+        <activity
+            android:name=".DrawerActivity"
+            android:label="@string/title_activity_drawer"
+            android:theme="@style/Theme.MyApplication.NoActionBar"></activity>
+        <activity android:name=".RegistrationParkUser" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -43,6 +33,23 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
+        <activity
+            android:name=".MapsParkUserActivity"
+            android:label="@string/title_activity_maps_park_user" />
+        <activity
+            android:name=".MapsParkingActivity"
+            android:label="@string/title_activity_maps_parking" />
+        <activity android:name=".RegistrarParqueadero" />
+        <activity android:name=".SplashActivity" />
+        <activity android:name=".Login" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".RegistrationClient" />
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
