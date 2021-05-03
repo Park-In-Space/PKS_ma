@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F1E3E4"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".RegistrationClient">
 
 
 
@@ -135,6 +136,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/clientRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="LISTO?"

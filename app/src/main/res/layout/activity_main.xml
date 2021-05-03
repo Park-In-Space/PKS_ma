@@ -22,31 +22,30 @@
 
     <Button
         android:id="@+id/buttonSignUpClient"
-        android:layout_width="174dp"
-        android:layout_height="51dp"
-        android:text="Registrarse"
+        android:layout_width="177dp"
+        android:layout_height="61dp"
+        android:text="Registrarse Cliente "
         android:textColor="@color/black"
         app:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.591" />
+        app:layout_constraintVertical_bias="0.594" />
 
     <Button
         android:id="@+id/buttonSignUpPark"
-        android:layout_width="174dp"
-        android:layout_height="51dp"
-        android:text="Registrarse"
+        android:layout_width="171dp"
+        android:layout_height="60dp"
+        android:text="Registrarse como Dueño"
         android:textColor="@color/black"
         app:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.591" />
+        app:layout_constraintVertical_bias="0.709" />
 
     <Button
         android:id="@+id/buttonLogin"
@@ -57,12 +56,10 @@
         app:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.752" />
-
-
+        app:layout_constraintVertical_bias="0.851" />
 
     <TextView
         android:id="@+id/textView"

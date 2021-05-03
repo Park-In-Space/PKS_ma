@@ -34,9 +34,5 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        lifecycleScope.launchWhenResumed {
-            val output = MapInformation.GetAllParkingsByOwnerId( 9 )
-            Log.d("ParkingList", "Success $output")
-        }
     }
 }
