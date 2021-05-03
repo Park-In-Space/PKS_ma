@@ -1,0 +1,13 @@
+query getParkinglot{
+    plu_getAllParkinglot{
+        id
+        parkinglotuser{
+            id
+            userId
+            username
+            email
+            phone
+        }
+        parkingid
+    }
+}
