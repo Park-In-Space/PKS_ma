@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,9 +20,10 @@ import com.google.android.gms.maps.model.MarkerOptions
 
 import androidx.lifecycle.lifecycleScope
 import com.example.myapplication.dataAccess.*
+import com.google.android.gms.maps.model.Marker
 
 
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
+class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
 
     private lateinit var mMap: GoogleMap
 
@@ -100,19 +102,50 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 val locationResponse = apolloClient.query(GetLocationByIdQuery( parking.idLocation )).await()
                 if( locationResponse?.data?.loc_location == null ) continue
                 val Parking = LatLng(locationResponse?.data?.loc_location?.latitude!! ,locationResponse?.data?.loc_location?.longitude!!)
-                mMap.addMarker(MarkerOptions().position(Parking).title(parking.name))
+                mMap.addMarker(MarkerOptions()
+                    .position(Parking)
+                    .title(parking.name)
+                    .snippet(parking.address)
+                )
                 Log.d("ParkingList", "Location ${locationResponse?.data?.loc_location?.latitude} ${locationResponse?.data?.loc_location?.longitude}")
             }
             Log.d("ParkingList", "Success ${response?.data}")
             //Log.d("ParkingList", "Success ${response?.data?.par_getParkings?.get(0)?.name}")
         }
-
-
         //val miPosicion =  getLocationAccess()
-
         //mMap.addMarker(MarkerOptions().position(miPosicion).title("Mi posicion"))
         val Bogota = LatLng(4.60971, -74.08175)
         mMap.moveCamera(CameraUpdateFactory.newLatLng(Bogota))
         mMap.moveCamera( CameraUpdateFactory.newLatLngZoom(Bogota,10f))
+        googleMap.setOnInfoWindowClickListener(this)
+    }
+
+    override fun onInfoWindowClick(marker: Marker) {
+//        Log.d("ParkingList", "ENTREEEEEEEEEE")
+//        Toast.makeText(
+//            applicationContext, "Info window clicked ${marker.title}",
+//            Toast.LENGTH_SHORT
+//        ).show()
+
+        lifecycleScope.launchWhenResumed {
+            val response = apolloClient.query(GetParkingsQuery()).await()
+            //mMap.addMarker(MarkerOptions().position(Museo).title(response?.data?.par_getParkings?.get(0)?.name))
+            for( parking in response?.data?.par_getParkings!! ){
+                if( parking == null || parking.idLocation == null ) continue
+                if ( marker.title == parking.name && marker.snippet == parking.address)  {
+                    parkingId = parking.id.toInt()
+                    break
+                }
+                //Log.d("ParkingList", "Location ${locationResponse?.data?.loc_location?.latitude} ${locationResponse?.data?.loc_location?.longitude}")
+            }
+
+            val intent = Intent(applicationContext, ParkingView::class.java)
+            startActivity(intent)
+            //Log.d("ParkingList", "Success ${response?.data?.par_getParkings?.get(0)?.name}")
+        }
+
+
+
+
     }
 }

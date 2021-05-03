@@ -31,7 +31,8 @@
             android:text="Nombre de parqueadero"
             android:textAlignment="center"
             android:textSize="20sp"
-            android:gravity="center_horizontal" />
+            android:gravity="center_horizontal"
+            android:id="@+id/parkingLotName"/>
 
     </RelativeLayout>
 
@@ -61,18 +62,17 @@
 
                 <TextView
                     android:fontFamily="@font/bungee_regular"
-                    android:id="@+id/payment_label"
+                    android:id="@+id/parkingLotPrice"
                     android:includeFontPadding="false"
                     android:layout_centerInParent="true"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:text="$123"
                     android:textSize="30sp" />
 
                 <TextView
                     android:id="@+id/payment_desc"
                     android:includeFontPadding="false"
-                    android:layout_below="@id/payment_label"
+                    android:layout_below="@id/parkingLotPrice"
                     android:layout_centerHorizontal="true"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
@@ -103,18 +103,17 @@
 
                 <TextView
                     android:fontFamily="@font/bungee_regular"
-                    android:id="@+id/parking_cupos"
+                    android:id="@+id/parkingLotSpace"
                     android:includeFontPadding="false"
                     android:layout_centerInParent="true"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:text="50"
                     android:textSize="30sp" />
 
                 <TextView
                     android:id="@+id/parking_cupos_tx"
                     android:includeFontPadding="false"
-                    android:layout_below="@+id/parking_cupos"
+                    android:layout_below="@+id/parkingLotSpace"
                     android:layout_centerHorizontal="true"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
@@ -134,11 +133,10 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/direccion"
+            android:id="@+id/parkingLotAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/bungee_regular"
-            android:text="Calle pito #69-27"
             android:textAlignment="center"
             android:textSize="20sp"
             android:gravity="center_horizontal">

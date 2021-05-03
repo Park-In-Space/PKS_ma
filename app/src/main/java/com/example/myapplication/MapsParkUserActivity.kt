@@ -1,10 +1,12 @@
 package com.example.myapplication
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -28,11 +30,19 @@ class MapsParkUserActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_maps)
+        setContentView(R.layout.activity_maps_park_user)
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+
+        val buttonRegister: Button = findViewById(R.id.startActivityButton)
+        buttonRegister.setOnClickListener {
+            val intent = Intent(this, RegistrarParqueadero::class.java)
+            startActivity(intent)
+        }
+
     }
 
     /**
