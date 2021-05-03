@@ -1,0 +1,3 @@
+mutation deleteParkingById($id: Int!){
+    par_deleteParking(id:$id)
+}
