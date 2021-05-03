@@ -1,0 +1,9 @@
+query getClientUserById($userId: String!){
+    clu_userById(userId:$userId){
+        userId
+        name
+        email
+        age
+        phoneNumber
+    }
+}
