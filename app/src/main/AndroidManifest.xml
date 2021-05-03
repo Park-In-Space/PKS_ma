@@ -18,6 +18,7 @@
         android:usesCleartextTraffic="true">
       
         <activity android:name=".ParkingView"></activity>
+        <activity android:name=".ParkingViewUserPark"></activity>
 
         <activity
             android:name=".DrawerActivity"

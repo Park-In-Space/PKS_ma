@@ -75,6 +75,7 @@ class RegistrarParqueadero : AppCompatActivity() {
 
             lifecycleScope.launchWhenResumed {
                 //val client= UserClienAuthInput(name = 'pzambi',email = 'perro@gmail.com' , age =  9,phoneNumber = phone.getEditText()?.getText().toString().toInt(),password = password.getEditText()?.getText().toString())
+                Log.d("ParkingList", "${newParking}")
                 try {
                     val response = apolloClient.mutate(PostParkingMutation( newParking )).await()
 
