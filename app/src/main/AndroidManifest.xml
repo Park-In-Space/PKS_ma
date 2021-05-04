@@ -17,13 +17,13 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true" >
         <activity
-            android:name=".DrawerActivity"
-            android:label="@string/title_activity_drawer"
+            android:name=".DrawerActivity2"
+            android:label="@string/title_activity_drawer2"
             android:theme="@style/Theme.MyApplication.NoActionBar" >
         </activity>
         <activity
-            android:name=".MainActivity2"
-            android:label="@string/title_activity_main2"
+            android:name=".DrawerActivity"
+            android:label="@string/title_activity_drawer"
             android:theme="@style/Theme.MyApplication.NoActionBar" />
         <activity android:name=".ParkingView" />
         <activity android:name=".ParkingViewUserPark" /> <!-- android:theme="@style/Theme.MyApplication.NoActionBar"></activity> -->

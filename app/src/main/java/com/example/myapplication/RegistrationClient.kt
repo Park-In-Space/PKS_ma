@@ -40,6 +40,10 @@ class RegistrationClient : AppCompatActivity() {
                                //val client= UserClienAuthInput(name = 'pzambi',email = 'perro@gmail.com' , age =  9,phoneNumber = phone.getEditText()?.getText().toString().toInt(),password = password.getEditText()?.getText().toString())
                try {
                    val response = apolloClient.mutate(PostClientUserMutation(client)).await()
+                   val intent = Intent(applicationContext, MainActivity::class.java)
+                   startActivity(intent)
+
+
                }
                catch (e: ApolloHttpException){
 
