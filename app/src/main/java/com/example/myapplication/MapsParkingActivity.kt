@@ -114,7 +114,7 @@ class MapsParkingActivity : AppCompatActivity(), OnMapReadyCallback {
             savedLatitude =latLng.latitude
             savedLongitude =latLng.longitude
             lifecycleScope.launchWhenResumed {
-                delay(250L)
+                delay(300L)
                 val intent = Intent(applicationContext, RegistrarParqueadero::class.java)
                 startActivity(intent)
             }
