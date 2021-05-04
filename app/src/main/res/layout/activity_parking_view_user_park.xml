@@ -31,7 +31,7 @@
             android:fontFamily="@font/bungee_regular"
             android:text="Nombre de parqueadero"
             android:textAlignment="center"
-            android:textSize="20sp"
+            android:autoSizeTextType="uniform"
             android:gravity="center_horizontal"
             android:id="@+id/parkingLotName"/>
 
