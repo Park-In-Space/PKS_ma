@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 import com.apollographql.apollo.coroutines.await
@@ -55,6 +56,19 @@ class ParkingViewUserPark : AppCompatActivity() {
             //mMap.addMarker(MarkerOptions().position(Museo).title(response?.data?.par_getParkings?.get(0)?.name))
 
         }
+
+
+        val deleteParking: Button = findViewById(R.id.deleteParking)
+        deleteParking.setOnClickListener {
+            lifecycleScope.launchWhenResumed {
+                val response = apolloClient.mutate(DeleteParkingByIdMutation(parkingId)).await()
+            }
+
+
+            val intent = Intent(this, MapsParkUserActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
 

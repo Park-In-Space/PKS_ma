@@ -144,7 +144,6 @@
 
         </TextView>
 
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -364,6 +363,16 @@
 
         </RelativeLayout>
 
+        <Button
+            android:id="@+id/deleteParking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Eliminar parqueadero"
+            android:textColor="@color/white"
+            app:backgroundTint="#00BCD4">
+
+
+        </Button>
 
 
 
