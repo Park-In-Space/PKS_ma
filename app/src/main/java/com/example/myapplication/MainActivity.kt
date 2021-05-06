@@ -4,7 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import android.view.animation.AnimationUtils.loadAnimation
 import android.widget.Button
+import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.Spinner
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI.setupWithNavController
@@ -19,12 +25,17 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var  rotateAnimation: Animation
+    private lateinit var  logoButton: ImageButton
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        logoButton = findViewById(R.id.logo)
 
-
+        rotateAnimation()
 
         val buttonLogin: Button = findViewById(R.id.buttonLogin)
         buttonLogin.setOnClickListener {
@@ -44,8 +55,18 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
-
+        logoButton.setOnClickListener {
+            rotateAnimation()
+        }
 
     }
+
+    fun rotateAnimation(){
+        rotateAnimation =  AnimationUtils.loadAnimation(this, R.anim.rotate_logo)
+        rotateAnimation.setDuration(5000);
+        logoButton.startAnimation(rotateAnimation)
+
+    }
+
+
 }
