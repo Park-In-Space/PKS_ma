@@ -3,7 +3,7 @@ package com.example.myapplication.dataAccess
 import com.apollographql.apollo.ApolloClient
 
 val apolloClient = ApolloClient.builder()
-        .serverUrl("http://34.72.29.68:80/graphql")
+        .serverUrl("https://pks-proxy-1-gpvlioxixq-uc.a.run.app/graphql")
         .build()
 
 class Apollo {
